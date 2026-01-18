@@ -15,4 +15,10 @@ public class EmisoraAM {
         }
         return emisoraActual;
     }
+    public int estacionActual(){
+        return emisoraActual;
+    }
+    public int valInicial(){
+        return 530;
+    }
 }
