@@ -5,6 +5,7 @@
  *  
  */
 public interface Stack <T> {
+    // Funciones principales de una pila
     void push(T element);
     T pop();
     T peek();
