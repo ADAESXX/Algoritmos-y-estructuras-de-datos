@@ -24,8 +24,8 @@ public class VectorStack<T> implements Stack<T> {
         vector[size++] = element;
     }
 
-    Elimina y retorna el elemento superior de la pila
-     */
+    //Elimina y retorna el elemento superior de la pila
+    
     @Override
     @SuppressWarnings("unchecked")
     public T pop() {
@@ -60,3 +60,4 @@ public class VectorStack<T> implements Stack<T> {
         vector = newVector;
     }
 }
+
