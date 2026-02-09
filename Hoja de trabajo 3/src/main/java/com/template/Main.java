@@ -1,46 +1,65 @@
 package com.template;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+/**
+ * @author: Abigail Escobar
+ * Carne:25862  
+ * Fecha: 09/02/2026
+ * Descripción: Esta clase es el punto de entrada del programa, donde se generan los números
+ */
+import com.template.model.Numero;
+import com.template.sort.*;
+import com.template.util.FileManager;
+import com.template.util.GeneradorNumero;
+import com.template.util.MedidaTiempo;
+import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
-    private static final int ARRAY_SIZE = 100000;
-    private static final int ITERATIONS = 1000;
-    
-    public static void main(String[] args) {
-        System.out.println("Starting profiling demo application...");
-        System.out.println("JDK Version: " + System.getProperty("java.version"));
-        
-        performBubbleSort();
-        
-        System.out.println("Application completed successfully.");
-    }
-    
-    private static void performBubbleSort() {
-        System.out.println("Performing bubble sort...");
-        Random random = new Random();
-        int[] array = new int[ARRAY_SIZE / 10];
-        
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(1000);
-        }
-        
-        for (int i = 0; i < array.length - 1; i++) {
-            for (int j = 0; j < array.length - i - 1; j++) {
-                if (array[j] > array[j + 1]) {
-                    swap(array, j, j+1);
-                }
+    //archivo donde se guardaran los numeros
+    private static final String archivo = "numeros.txt";
+
+    public static void main(String[] args) throws IOException {
+
+        //definimos los tamaños de los arreglos que se van a generar para probar los algoritmos de ordenamiento
+        int[] tamanios = {10, 100, 500, 1000, 2000, 3000};
+        //Esto permitirá probar cada algoritmo con diferentes tamaños de entrada y observar cómo varía su rendimiento a medida que aumenta el número de elementos a ordenar
+        AlgoritmoSort<Numero>[] algoritmos = new AlgoritmoSort[]{
+                new GnomeSort<>(),
+                new BubbleSort<>(),
+                new MergeSort<>(),
+                new QuickSort<>(),
+                new RadixSort()
+        };
+        // Iteramos sobre cada tamaño definido
+        for (int n : tamanios) {
+
+            System.out.println("\n--------------------------------Tamaño: " + n + "--------------------------------");
+
+            // Generar números
+            Numero[] originales = GeneradorNumero.generarNumeros(n);
+
+            // se guarda en archivo
+            FileManager.guardarEnArchivo(archivo, originales);
+
+            // Leer del archivo
+            Numero[] datosArchivo = FileManager.leerDesdeArchivo(archivo);
+
+            for (AlgoritmoSort<Numero> sort : algoritmos) {
+
+                // Hacemos una copia para cada sort, para que cada algoritmo trabaje con los mismos datos y así tener una comparación adecuada
+                Numero[] copia = Arrays.copyOf(datosArchivo, datosArchivo.length);
+                // Peor caso: desordenado
+                long tiempoDesordenado = MedidaTiempo.medir(() -> sort.sort(copia));
+
+                // Mejor caso: ya ordenado
+                long tiempoOrdenado = MedidaTiempo.medir(() -> sort.sort(copia));
+
+                // Imprimimos los resultados para cada algoritmo y tamaño, mostrando el tiempo que tomó ordenar tanto en el caso desordenado como en el caso ya ordenado
+                System.out.println(sort.getClass().getSimpleName());
+                System.out.println("  Desordenado (ns): " + tiempoDesordenado);
+                System.out.println("  Ordenado (ns):    " + tiempoOrdenado);
             }
         }
-        
-        System.out.println("Bubble sort completed.");
     }
-
-    private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp; 
-    }
-
 }
+
+
