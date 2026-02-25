@@ -1,1 +1,26 @@
 Este proyecto consiste en el diseño e implementación de un programa en Java que evalúa expresiones aritméticas en notación Postfix utilizando una pila (Stack) como Tipo Abstracto de Datos (ADT), aplicando el uso de genéricos para lograr una solución flexible y reutilizable. La pila se implementa mediante un vector de tamaño variable, respetando las operaciones fundamentales de inserción y eliminación. El programa lee desde un archivo de texto llamado datos.txt, el cual contiene expresiones Postfix formadas por operandos enteros de un solo dígito y operadores aritméticos básicos (+, −, *, /), separados por espacios. La evaluación se realiza de izquierda a derecha, insertando operandos en la pila y aplicando operaciones al encontrar operadores, cuidando el orden correcto de los operandos. Finalmente, el programa muestra el resultado de cada expresión, incorporando control de versiones durante el desarrollo y pruebas unitarias con JUnit para garantizar su correcto funcionamiento.
+
+Para compilar en Visual:
+- Primero hace un pull de los programas
+- Abrir la terminal correspondiente a la carpeta donde están todos los archivos
+- Luego en consola escribir javac nombredelaclase (para todas las clases/programas)
+- En la misma carpeta crear un documento txt con nombre datos.txt donde se pondrá la expresión Postfix a resolver
+- Escribir en consola Principal.java
+- En consola deberá de aparecer el resultado de la operación.
+
+Ejemplo:
+PS C:\Users\DELL\OneDrive - UVG\Algoritmos y estructuras de datos\Algoritmos-y-estructuras-de-datos\Hoja_trabajo2> javac Principal.java
+PS C:\Users\DELL\OneDrive - UVG\Algoritmos y estructuras de datos\Algoritmos-y-estructuras-de-datos\Hoja_trabajo2> java Principal.java
+El resultado de 1 2 + 4 * 3 + es igual a 15
+
+
+En Eclipse IDE (para correrlo y pruebas JUnit)
+- Utilizar eclipse IDE
+- Crear un nuevo Java Project
+- Dentro crear un JUnit Test
+- Presionar en la flecha verde (run) con el programa/clase Principal.java
+- En consola deberá de salir el resultado
+
+- Para las pruebas JUnit abrir el JUnit Test que se creo y pegar el código que se encuentra en este repositorio en la clase HojaTrabajo2Test.java o HojaTrabajo2FailTest.java
+- Presionar en la flecha verde (run) con ese JUnit Test y debería de aparecer en la esquina izquierda, a la par de Project Explorer una pestaña llamada JUnit, donde se mostrará el resultado de la prueba.
+
