@@ -24,8 +24,10 @@ public class Principal {
                 InfixToPostfix infixToPostfix= new ImplementacionInfixToPostfix(stack);
                 //se envía la información del stack al constructor de la clase que lo implementará, así podrá realizar los calculos correspondientes con ese stack (stack vacio)
                 CalculadorPostfix calculador= new ImplementacionCalculadora(stack);
-                //manda la expresión parapoder calcular la respuesta usando el stack creado con anterioridad
-                int resultado= calculador.calcular(linea);
+                //se convierte la expresión infix a postfix
+                String postfix= infixToPostfix.convertir(linea);
+                //manda la expresión para poder calcular la respuesta usando el stack creado con anterioridad
+                int resultado= calculador.calcular(postfix);
                 System.out.println("El resultado de " + linea + " es igual a " + resultado);
             }
         }
