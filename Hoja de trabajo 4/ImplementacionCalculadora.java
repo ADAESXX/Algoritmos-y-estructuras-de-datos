@@ -37,7 +37,7 @@ public class ImplementacionCalculadora implements CalculadorPostfix{
 
     public boolean isNumber(String dato){
         //permite evaluar si es un número, para ello usa regex
-        return dato.matches("\\d");
+        return dato.matches("\\d+");
     }
 
     public int operar(int a, int b, String operador){

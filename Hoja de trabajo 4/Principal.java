@@ -19,11 +19,12 @@ public class Principal {
             String linea;
             while ((linea=br.readLine())!=null){
                 //instancia del vector stack, que tiene como "padre" a la clase stack, por eso hay polimorfismo aqui
-                Stack<Integer> stack= new VectorStack<>();
+                Stack<String> stackConversion= new VectorStack<>();
+                Stack<Integer> stackCalculo= new VectorStack<>();
                 //infix a postfix
-                InfixToPostfix infixToPostfix= new ImplementacionInfixToPostfix(stack);
+                InfixToPostfix infixToPostfix= new ImplementacionInfixToPostfix(stackConversion);
                 //se envía la información del stack al constructor de la clase que lo implementará, así podrá realizar los calculos correspondientes con ese stack (stack vacio)
-                CalculadorPostfix calculador= new ImplementacionCalculadora(stack);
+                CalculadorPostfix calculador= new ImplementacionCalculadora(stackCalculo);
                 //se convierte la expresión infix a postfix
                 String postfix= infixToPostfix.convertir(linea);
                 //manda la expresión para poder calcular la respuesta usando el stack creado con anterioridad
