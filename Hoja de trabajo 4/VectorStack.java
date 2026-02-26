@@ -3,7 +3,7 @@
  * Fecha: 25/02/2026
  * Propósito clase: Esta clase implementa la interfaz Stack, es decir, define cómo se realizarán las acciones de una pila usando un vector. 
  */
-public class VectorStack<T> implements Stack<T> {
+public class VectorStack<T> extends AbstractStack<T> {
 
     private Object[] vector;   
     private int size;          
@@ -46,15 +46,11 @@ public class VectorStack<T> implements Stack<T> {
     }
 
     
-    @Override
-    public int size() {
-        return size;
-    }
-
    
     private void resize() {
         Object[] newVector = new Object[vector.length * 2];
         System.arraycopy(vector, 0, newVector, 0, vector.length);
         vector = newVector;
     }
+
 }
