@@ -5,8 +5,7 @@
  */
 public class VectorStack<T> extends AbstractStack<T> {
 
-    private Object[] vector;   
-    private int size;          
+    private Object[] vector;          
 
   
     public VectorStack() {
