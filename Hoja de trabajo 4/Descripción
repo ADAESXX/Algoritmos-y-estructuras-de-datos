@@ -1,0 +1,1 @@
+Programa que realiza el cálculo de una expresión infix, para ello primero se transforma en postfix y luego evaluarla.
