@@ -1,6 +1,6 @@
 /**
  * @author Allysón Dulce Abigail Escobar Sandoval
- * Fecha: 25/02/2026
+ * Fecha: 26/02/2026
  * Propósito clase: Esta clase es la implementación de la lista simplemente encadenada
 */
 public class SinglyLinkedList<T> extends AbstractList<T> {

@@ -1,6 +1,6 @@
 /**
  * @author Alyson Dulce Abigail Escobar Sandoval
- * Fecha: 25/02/2026
+ * Fecha: 26/02/2026
  * Propósito clase: permite que el programa interactue con el programa  por medio de la consola, además puede leer los archivos .txt 
  *  
  */

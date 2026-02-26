@@ -1,6 +1,6 @@
 /**
  * @author Allysón Dulce Abigail Escobar Sandoval
- * Fecha: 25/02/2026
+ * Fecha: 26/02/2026
  * Propósito clase: Nodos para la lista doblemente encadenada
 */
 // Nodo para lista doblemente encadenada

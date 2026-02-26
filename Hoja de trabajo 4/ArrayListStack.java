@@ -1,6 +1,6 @@
 /**
  * @author Allysón Dulce Abigail Escobar Sandoval
- * Fecha: 25/02/2026
+ * Fecha: 26/02/2026
  * Propósito clase: Clase que utiliza la estructura arraylist para funcioar como "stack"
 */
 import java.util.ArrayList;
