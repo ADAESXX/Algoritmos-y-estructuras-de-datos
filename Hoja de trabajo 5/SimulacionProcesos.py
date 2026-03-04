@@ -110,19 +110,37 @@ def correr_simulacion(numeroProcesos, intervalo, capacidadRAM, velocidadCPU, num
     desviacion=statistics.stdev(tiempos)
     return promedio, desviacion
 
+def graficarResultados(procesos, promedios, titulo):
+    plt.figure()
+    plt.plot(procesos, promedios, marker='o')
+    plt.xlabel("Número de procesos")
+    plt.ylabel("Tiempo promedio en el sistema")
+    plt.title(titulo)
+    plt.grid(True)
+    plt.show()
+    
 
 #basicamente va a ser el "cerebro" del programa, ya que va a llamar a las funciones correspondientes
 def main():
     #Creacion de la semilla para la secuencia en los números "aleatorios"
     random.seed(42)
-    #Simulacion por numero de procesos (solicitadas en la guía)
+    #Simulacion por numero de procesos e intervalos (solicitadas en la guía)
     procesosLista=[25,50,100,150,200]
-    #se recorre la lista para ejecutar cada simulacion con la cantidad i de procesos
-    for cantproceso in procesosLista:
-        #en parametros manda: la cantidad de procesos a realizar (i en la lista), el intervalo para la distribucion exponencial, la capacidad mazima de la memoria (especificada en la guia), la cantidad de instrucciones que se ejecutarán y el número de cpus a usar
-        promedio, desviacion= correr_simulacion(cantproceso, 10, 100, 3, 1)
-        print("Cantidad procesos " + str(cantproceso) + "\nPromedio: " + str(promedio) + "\nDesviacion: " + str(desviacion))
+    intervalos=[10,5,1]
+    #se prueban todos los procesos (las cantidades especificadas en la lista) con las 3 intervalos de prueba
+    for intervalo in intervalos:
+        #promedios de tiempos
+        promedios=[]
+        #se recorre la lista para ejecutar cada simulacion con la cantidad i de procesos
+        for cantproceso in procesosLista:
+            #en parametros manda: la cantidad de procesos a realizar (i en la lista), el intervalo para la distribucion exponencial, la capacidad mazima de la memoria (especificada en la guia), la cantidad de instrucciones que se ejecutarán y el número de cpus a usar
+            promedio, desviacion= correr_simulacion(cantproceso, 10, 100, 3, 2)
+            print("Cantidad procesos " + str(cantproceso) + "\nPromedio: " + str(promedio) + "\nDesviacion: " + str(desviacion))
 
+            promedios.append(promedio)
+        
+        graficarResultados(procesosLista,promedios,f"Intervalo {intervalo}")
+        print("\n")
 
 #NO es obligatorio usarlo, pero si lo uso en otro programa me sirve
 if __name__=="__main__":
