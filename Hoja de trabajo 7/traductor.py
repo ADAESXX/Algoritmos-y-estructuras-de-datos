@@ -148,22 +148,18 @@ def translate_text(filename, tree):
     return " ".join(traduccion)
 
 
-def main():
-    #creo mi arbol
-    tree = BinaryTree()
-    #cargo el diccionario
-    load_dictionary("diccionario.txt", tree)
+#creo mi arbol
+tree = BinaryTree()
+#cargo el diccionario
+load_dictionary("diccionario.txt", tree)
 
-    print("Diccionario ordenado:")
-    #imprimo el diccionario en el inorder
-    for assoc in tree.inorder():
-        print(assoc)
+print("Diccionario ordenado:")
+#imprimo el diccionario en el inorder
+for assoc in tree.inorder():
+    print(assoc)
 
-    print("\nTraducción:\n")
-    #traduzco el texto del txt y busco en mi arbol
-    translation = translate_text("texto.txt", tree)
-    #imprimo la traduccion
-    print(translation)
-
-if __name__ == "__main__":
-    main()
+print("\nTraducción:\n")
+#traduzco el texto del txt y busco en mi arbol
+translation = translate_text("texto.txt", tree)
+#imprimo la traduccion
+print(translation)
