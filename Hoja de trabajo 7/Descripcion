@@ -1,1 +1,3 @@
 Realizar un programa que implementa un diccionario inglés - español con el uso de arboles binarios para búsqueda en un mapa basado en esta estructura.
+
+El texto que se tradujo se encuentra en el archivo text.txt y el diccionario de la asociacion de las palabras (word, palabra) se encuentra en el archivo diccionario.txt
