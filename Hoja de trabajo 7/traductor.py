@@ -146,6 +146,18 @@ def translate_text(filename, tree):
             traduccion.append(word)
     #une todo en un string con espacios
     return " ".join(traduccion)
+#prueba unitaria
+def test_insert_and_search():
+    tree = BinaryTree()
+
+    tree.insert(Association("dog", "perro"))
+    tree.insert(Association("cat", "gato"))
+
+    assert tree.search("dog") == "perro"
+    assert tree.search("cat") == "gato"
+    assert tree.search("bird") is None
+
+    print("Tests OK")
 
 
 #creo mi arbol
@@ -163,3 +175,5 @@ print("\nTraducción:\n")
 translation = translate_text("texto.txt", tree)
 #imprimo la traduccion
 print(translation)
+
+test_insert_and_search()
