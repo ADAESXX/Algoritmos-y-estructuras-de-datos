@@ -1,0 +1,2 @@
+Este programa tiene como finalidad poder implementar un  sistema de colas con prioridad para atender pacientes en la emergencia de un hospital.
+Se utilizará heaps para implementar el Priority Queue.
