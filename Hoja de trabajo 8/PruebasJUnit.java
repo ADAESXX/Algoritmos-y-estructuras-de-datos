@@ -14,11 +14,7 @@ public class PruebasJUnit {
         heap.add(new Paciente("Camila", "x", "B"));
 
         //se muestra el paciente con mayor prioridad después de las inserciones, que debería ser Braulio con código de emergencia A
-        System.out.println("Debe salir A: " + heap.poll());
-        System.out.println("Debe salir B: " + heap.poll());
-        System.out.println("Debe salir C: " + heap.poll());
-
         System.out.println("Orden esperado: A, B, C");
-        System.out.println("Orden obtenido: " + heap.poll() + ", " + heap.poll() + ", " + heap.poll());
+        System.out.println("Orden obtenido: " + heap.poll().toString() + "\n " + heap.poll().toString() + "\n " + heap.poll().toString());
     }
 }
