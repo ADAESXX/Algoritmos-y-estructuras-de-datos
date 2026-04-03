@@ -16,6 +16,11 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
         this.data = new ArrayList<>();
     }
 
+    /**
+     * @param value el valor a agregar al heap
+     * El método add agrega un nuevo elemento al heap y luego lo reordena para mantener la propiedad del heap
+     */
+
     public void add(E value){
         data.add(value);
         //se obtiene el índice del último elemento agregado, que es el que se acaba de insertar
@@ -40,6 +45,10 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
         }
     }
 
+    /**
+     * @return el elemento con mayor prioridad del heap
+     * El método poll elimina y devuelve el elemento con mayor prioridad del heap, luego reordena el heap para mantener la propiedad del heap
+     */
     public E poll(){
         //si el heap no está vacío, se devuelve el elemento en la raíz del heap, que es el elemento con mayor prioridad
         if (!data.isEmpty()) {
@@ -78,13 +87,20 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
         return null;
     }
     
-    
+    /**
+     * @return el elemento con mayor prioridad del heap sin eliminarlo
+     */
     public E peek() {
         //si el heap no está vacío, se devuelve el elemento en la raíz del heap, que es el elemento con mayor prioridad
         if (!data.isEmpty()) {
             return data.get(0);
         }
         return null;
+    }
+
+    public boolean isEmpty() {
+        //se devuelve true si el heap está vacío, es decir, si el tamaño del vector es 0
+        return data.isEmpty();
     }
 
 }

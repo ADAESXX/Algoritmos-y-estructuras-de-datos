@@ -40,13 +40,13 @@ public class Paciente implements Comparable<Paciente> {
     //toString para mostrar la informacion del paciente de manera legible
     @Override
     public String toString() {
-        return "Paciente{" +
-                "nombre='" + nombre + '\'' +
-                ", desSintomas='" + desSintomas + '\'' +
-                ", codigoEmergencia='" + codigoEmergencia + '\'' +
-                '}';
+        return nombre + ", " + desSintomas + ", " + codigoEmergencia;
     }
 
+    /**
+     * @param paciente el paciente a comparar con el paciente actual
+     * @return un valor negativo si el paciente actual tiene mayor prioridad que el paciente comparado
+     */
     @Override
     public int compareTo(Paciente paciente) {
         //se compara el codigo de emergencia de los pacientes para determinar su prioridad de atencion

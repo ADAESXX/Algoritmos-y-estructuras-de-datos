@@ -41,22 +41,15 @@ public class Main {
 
         //Como segundo paso se mostrará un menu para eliminar pacientes del VectorHeap, mostrando el paciente eliminado y el paciente con mayor prioridad después de cada eliminación
         Scanner sc= new Scanner(System.in);
-        System.out.println("¿Desea eliminar al paciente? (s/n)");
-        String respuesta = sc.nextLine();
-        if (respuesta.toLowerCase().equals("s")){
-            //se elimina el paciente con mayor prioridad, que es el que se encuentra en la raíz del heap
-            Paciente eliminado = heap.poll();
-            if (eliminado != null) {
-                System.out.println("Paciente eliminado: " + eliminado.toString());
-                //se muestra el paciente con mayor prioridad después de la eliminación, que es el nuevo paciente en la raíz del heap
-                Paciente mayorPrioridad = heap.peek();
-                if (mayorPrioridad != null) {
-                    System.out.println("Paciente con mayor prioridad despues de la eliminacion: " + mayorPrioridad.toString());
-                } else {
-                    System.out.println("No hay pacientes en el heap.");
-                }
+        while (!heap.isEmpty()) {
+            System.out.println("¿Atender siguiente paciente? (s/n)");
+            String respuesta = sc.nextLine();
+
+            if (respuesta.equalsIgnoreCase("s")) {
+                Paciente eliminado = heap.poll();
+                System.out.println("\nPaciente atendido: " + eliminado.toString());
             } else {
-                System.out.println("No hay pacientes para eliminar.");
+                break;
             }
         }
     }
